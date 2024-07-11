@@ -137,7 +137,7 @@ const LandingPage = () => {
             </footer> */}
             </div >
 
-            <div className='px-80 text-center bg-blue-200 py-6'>
+{/*             <div className='px-80 text-center bg-blue-200 py-6'>
                 <h1 className='text-[50px]'>
                     TRUST THE SYSTEM BUILT ON SCIENCE AND PROVEN OVER TIME
                 </h1>
@@ -167,7 +167,7 @@ const LandingPage = () => {
                         height={1050}
                     />
                 </div>
-            </section>
+            </section> */}
         </>
     );
 };
