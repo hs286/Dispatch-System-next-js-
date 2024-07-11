@@ -15,11 +15,10 @@ import { EyeSlashFilledIcon } from "@/icons/EyeSlashFilledIcon";
 import { EyeFilledIcon } from "@/icons/EyeFilledIcon";
 import Link from "next/link";
 
-
-const LoginTab: FC<LoginTabProps> = ({ setSelected }) => {
+const LoginTab: FC<LoginTabProps> = ({ setSelected, onClick }) => {
   const [isPassVisible, setIsPassVisible] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false)
-  const [resetEmail, setResetEmail] = useState<any>("")
+  const [loading, setLoading] = useState<boolean>(false);
+  const [resetEmail, setResetEmail] = useState<any>("");
 
   const [showForgotPassword, setShowForgotPassword] = useState<boolean>(false);
 
@@ -27,14 +26,11 @@ const LoginTab: FC<LoginTabProps> = ({ setSelected }) => {
     setShowForgotPassword((p) => !p);
   }, []);
 
-
-
   const handleEnter = (e: { key: string }) => {
     if (e.key === "Enter") {
       loginFormik.handleSubmit();
     }
   };
-
 
   const handlePasswordVisibility = () => {
     setIsPassVisible((p) => !p);
@@ -43,7 +39,7 @@ const LoginTab: FC<LoginTabProps> = ({ setSelected }) => {
   const loginFormik = useFormik({
     initialValues: loginInitialValues,
     validationSchema: loginFormValidation,
-    onSubmit: ()=>{},
+    onSubmit: () => {},
   });
 
   const loginFormikValues = useMemo(
@@ -142,8 +138,9 @@ const LoginTab: FC<LoginTabProps> = ({ setSelected }) => {
         </Link>
       </p> */}
 
-     
-      <Link href={'/sign-up'} className="text-blue-600 text-center" >Forgot password?</Link>
+      <Link href={"/sign-up"} className="text-blue-600 text-center">
+        Forgot password?
+      </Link>
       <Button
         radius="sm"
         fullWidth
@@ -151,11 +148,17 @@ const LoginTab: FC<LoginTabProps> = ({ setSelected }) => {
         color="primary"
         // isLoading={isLoginLoading}
         onPress={() => loginFormik.handleSubmit()}
+        onClick={onClick}
       >
         Login
       </Button>
 
-       <p className="text-center">Dont't have an account? <Link href={'/sign-up'} className="text-blue-600">Signup</Link></p>
+      <p className="text-center">
+        Dont&apos;t have an account?{" "}
+        <Link href={"/sign-up"} className="text-blue-600">
+          Signup
+        </Link>
+      </p>
     </div>
   );
 };

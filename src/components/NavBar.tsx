@@ -1,16 +1,30 @@
 import React from "react";
 import Link from "next/link";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Button} from "@nextui-org/react";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  Button,
+} from "@nextui-org/react";
 
 export default function NavBar() {
   return (
-    <Navbar>
-      <NavbarBrand>
-        <p className="font-bold text-inherit"><Link href={'/'}> Emergency Dispatch </Link></p>
+    <Navbar className="bg-[#2a3644] text-[#e7e8e2]">
+      <NavbarBrand className="">
+        <p className="font-bold bg-[#e7e8e2] px-4 py-1 rounded-lg text-inherit">
+          <Link className="text-[#2a3644]" href={"/"}>
+            {" "}
+            Logo{" "}
+          </Link>
+        </p>
       </NavbarBrand>
-      {/* <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="#">
+      <NavbarContent
+        className="text=[#e7e8e2] hidden sm:flex gap-4"
+        justify="center"
+      >
+        <NavbarItem className="text=[#e7e8e2]">
+          <Link color="foreground" href="#" className="">
             Features
           </Link>
         </NavbarItem>
@@ -20,20 +34,25 @@ export default function NavBar() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="white" href="#">
             Integrations
           </Link>
         </NavbarItem>
-      </NavbarContent> */}
+      </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
+        <NavbarItem className="">
           <Link href="/login">Login</Link>
         </NavbarItem>
         <NavbarItem>
-        <Link href="/login" > 
-          <Button type="button" elementType={"button"} color="primary"variant="flat">
-            Sign Up
-          </Button>
+          <Link href="/login">
+            <Button
+              type="button"
+              elementType={"button"}
+              className="text=[#e7e8e2]"
+              variant="flat"
+            >
+              Sign Up
+            </Button>
           </Link>
         </NavbarItem>
       </NavbarContent>

@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
-import { Input, Select, SelectItem } from "@nextui-org/react";
-const BillingForm = () => {
+import { Button, Input, Select, SelectItem } from "@nextui-org/react";
+const BillingForm = ({ onClick }) => {
     const [firstName, setFirstName] = useState('');
     const [age, setAge] = useState('');
     const [address2, setAddress2] = useState('');
@@ -14,7 +14,6 @@ const BillingForm = () => {
         e.preventDefault();
         const formData = {
             firstName,
-            attention,
             address2,
             phoneNumber,
             age,
@@ -25,7 +24,7 @@ const BillingForm = () => {
     };
 
     return (
-        <form className="max-w-4xl mx-auto p-4" onSubmit={handleSubmit}>
+        <form className="max-w-4xl mx-auto p-4  bg-white" onSubmit={handleSubmit}>
             <h2 className="text-2xl font-bold mb-4">1B BILLING INFORMATION</h2>
             <div className="mb-4 flex justify-between items-end">
                 <label className="block text-gray-700 font-bold">
@@ -33,6 +32,7 @@ const BillingForm = () => {
                 </label>
                 {/* <div className="mt-2 flex items-center">
                     <Input
+                        classNames={{inputWrapper: '!bg-white'}}
                         type="radio"
                         name="sameAsRequestor"
                         id="yes"
@@ -43,6 +43,7 @@ const BillingForm = () => {
                     />
                     <label htmlFor="yes" className="mr-4">Yes</label>
                     <Input
+                        classNames={{inputWrapper: '!bg-white'}}
                         type="radio"
                         name="sameAsRequestor"
                         id="no"
@@ -59,6 +60,7 @@ const BillingForm = () => {
                 <div>
                     <label className="block text-gray-700 font-bold"> Name</label>
                     <Input
+                        classNames={{inputWrapper: '!bg-white'}}
                         type="text"
                         className="w-full border border-gray-300 p-2 rounded mt-1"
                         value={firstName}
@@ -67,18 +69,21 @@ const BillingForm = () => {
                     />
                 </div>
                 <div>
-                    <label className="block text-gray-700 font-bold">Age</label>
+                    <label className="block text-gray-700 font-bold ">Age</label>
                     <Input
+                        classNames={{inputWrapper: '!bg-white'}}
                         type="number"
                         className="w-full border border-gray-300 p-2 rounded mt-1"
                         value={age}
                         onChange={(e) => setAge(e.target.value)}
+                        color='white'
                     />
                 </div>
 
                 {/* <div>
                     <label className="block text-gray-700 font-bold">Last Name</label>
                     <Input
+                        classNames={{inputWrapper: '!bg-white'}}
                         type="text"
                         className="w-full border border-gray-300 p-2 rounded mt-1"
                         value={lastName}
@@ -88,6 +93,7 @@ const BillingForm = () => {
                 <div>
                     <label className="block text-gray-700 font-bold">Pin Drop Number</label>
                     <Input
+                        classNames={{inputWrapper: '!bg-white'}}
                         type="number"
                         className="w-full border border-gray-300 p-2 rounded mt-1"
                         value={pinDropNUmber}
@@ -96,9 +102,10 @@ const BillingForm = () => {
                 </div>
 
                 <div>
-                    <label className="block text-gray-700 font-bold">Type of Emergency*</label>
+                    <label className="block text-gray-700 font-bold pb-1">Type of Emergency*</label>
                     <Select
                         label="Specifies the nature of the emergency"
+                        classNames={{mainWrapper: '!bg-white border-2 border-gray-300', trigger: '!bg-white'}}
                     >
                         {cityArray.map((type) => (
                             <SelectItem key={type.key}>
@@ -110,6 +117,7 @@ const BillingForm = () => {
                 <div>
                     <label className="block text-gray-700 font-bold">Adress </label>
                     <Input
+                        classNames={{inputWrapper: '!bg-white'}}
                         type="text"
                         className="w-full border border-gray-300 p-2 rounded mt-1"
                         value={address}
@@ -120,6 +128,7 @@ const BillingForm = () => {
                 <div>
                     <label className="block text-gray-700 font-bold">Adress 2</label>
                     <Input
+                        classNames={{inputWrapper: '!bg-white'}}
                         type="text"
                         className="w-full border border-gray-300 p-2 rounded mt-1"
                         value={address2}
@@ -130,6 +139,7 @@ const BillingForm = () => {
                     <label className="block text-gray-700 font-bold">Phone Number</label>
                     <div className="flex mt-1">
                         <Input
+                            classNames={{inputWrapper: '!bg-white'}}
                             type="text"
                             placeholder="Country Code"
                             className="w-1/4 border border-gray-300 p-2 rounded mr-2"
@@ -137,16 +147,19 @@ const BillingForm = () => {
                             onChange={(e) => setPhoneNumber(e.target.value)}
                         />
                         <Input
+                            classNames={{inputWrapper: '!bg-white'}}
                             type="text"
                             placeholder="Area"
                             className="w-1/4 border border-gray-300 p-2 rounded mr-2"
                         />
                         <Input
+                            classNames={{inputWrapper: '!bg-white'}}
                             type="text"
                             placeholder="Phone Number"
                             className="w-1/2 border border-gray-300 p-2 rounded"
                         />
                         <Input
+                            classNames={{inputWrapper: '!bg-white'}}
                             type="text"
                             placeholder="Ext"
                             className="w-1/6 border border-gray-300 p-2 rounded ml-2"
@@ -156,6 +169,7 @@ const BillingForm = () => {
                 {/* <div>
                     <label className="block text-gray-700 font-bold">Zip Code (Postal Code)</label>
                     <Input
+                        classNames={{inputWrapper: '!bg-white'}}
                         type="text"
                         className="w-full border border-gray-300 p-2 rounded mt-1"
                         value={zipCode}
@@ -167,6 +181,7 @@ const BillingForm = () => {
                 <div>
                     <label className="block text-gray-700 font-bold">Description of Emergency</label>
                     <Input
+                        classNames={{inputWrapper: '!bg-white'}}
                         type="text"
                         className="w-full border border-gray-300 p-2 rounded mt-1"
                         value={description}
@@ -177,9 +192,14 @@ const BillingForm = () => {
 
 
             </div>
-            <button type="submit" className="mt-4 bg-blue-500 text-white p-2 rounded">
-                Submit
-            </button>
+            <div className='my-2'>
+                <Button color="danger" variant="light" onPress={onClick}>
+                    Close
+                </Button>
+                <Button type="submit" color='primary'>
+                    Submit
+                </Button>
+            </div>
         </form>
     );
 };
