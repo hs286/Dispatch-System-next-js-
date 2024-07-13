@@ -3,13 +3,13 @@ import { GoogleMap, useJsApiLoader } from '@react-google-maps/api'
 import React, { useCallback, useState } from 'react'
 const containerStyle = {
     width: 'auto',
-    height: '400px'
+    height: '100vh'
 }
-const center = {
-    lat: -3.745,
-    lng: -38.523,
-};
-const Map = () => {
+// const center = {
+//     lat: 31.5217980444476,
+//     lng: 74.36008316527771,
+// };
+const Map = ({ center }) => {
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
         googleMapsApiKey: 'AIzaSyDCQ_UrxKRUnMpP_f7mnT0BxZcjcSnp7EY'
@@ -27,7 +27,7 @@ const Map = () => {
         <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
-            zoom={9}
+            zoom={8}
             onLoad={onLoad}
             onUnmount={onUnmount}
 
