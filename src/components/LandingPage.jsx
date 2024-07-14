@@ -34,7 +34,7 @@ const LandingPage = () => {
     return (
         <>
             <div className="bg-[#e7e8e2]">
-                <main className="container mx-auto p-4">
+                <main className="container mx-auto ">
                     <section className="text-center mb-8">
                         <Map center={center} />
 
