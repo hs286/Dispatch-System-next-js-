@@ -34,13 +34,13 @@ const LandingPage = () => {
     return (
         <>
             <div className="bg-[#e7e8e2]">
-                <main className="container mx-auto ">
+                <main className=" mx-auto ">
                     <section className="text-center mb-8">
                         <Map center={center} />
 
                     </section>
 
-                    {!showForm ? <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {!showForm ? <section className="px-3 grid grid-cols-1 md:grid-cols-3 gap-4">
 
 
 
