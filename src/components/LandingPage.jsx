@@ -32,81 +32,73 @@ const LandingPage = () => {
         lng: 74.36152118336334,
     };
     return (
-        <>
             <div className="bg-[#e7e8e2]">
-                <main className=" mx-auto ">
-                    <section className="text-center mb-8">
-                        <Map center={center} />
-
-                    </section>
-
-                    {!showForm ? <section className="px-3 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <main className=" mx-auto flex flex-col " style={{ height: 'calc(100vh - 64px)' }}>
+                    <Map center={center} />
+                    <div className='pt-3'>
+                        {!showForm ? <section className="px-3 grid grid-cols-1 md:grid-cols-3 gap-4">
 
 
 
-                        <div onClick={handleFrom} className=''>
-                            <Card className="py-6 cursor-pointer shadow-none hover:bg-[#e8ebdd] bg-[#e7e8e2] rounded-none border-none" >
+                            <div onClick={handleFrom} className=''>
+                                <Card className="py-6 cursor-pointer shadow-none hover:bg-[#e8ebdd] bg-[#e7e8e2] rounded-none border-none" >
 
-                                <CardBody className="overflow-visible border-[#2a3644] rounded-full py-2 mx-auto">
-                                    <Image
-                                        alt="Card background"
-                                        className="object-cover p-2 border-2 border-[#082636] rounded-full mx-auto"
-                                        src="https://cdn.emergencydispatch.org/iaed/img/protocols/disico_emd.svg"
-                                        width={150}
-                                        height={150}
-                                    />
-                                </CardBody>
-                                <h4 className="font-bold text-large text-center">AMBULANCE</h4>
+                                    <CardBody className="overflow-visible border-[#2a3644] rounded-full py-2 mx-auto">
+                                        <Image
+                                            alt="Card background"
+                                            className="object-cover p-2 border-2 border-[#082636] rounded-full mx-auto"
+                                            src="https://cdn.emergencydispatch.org/iaed/img/protocols/disico_emd.svg"
+                                            width={150}
+                                            height={150}
+                                        />
+                                    </CardBody>
+                                    <h4 className="font-bold text-large text-center">AMBULANCE</h4>
 
-                            </Card>
-                        </div>
+                                </Card>
+                            </div>
 
 
 
-                        <div onClick={handleFrom}>
+                            <div onClick={handleFrom}>
 
-                            <Card className="py-4 cursor-pointer shadow-none hover:bg-[#e8ebdd] bg-[#e7e8e2] rounded-none">
-                                <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
+                                <Card className="py-4 cursor-pointer shadow-none hover:bg-[#e8ebdd] bg-[#e7e8e2] rounded-none">
+                                    <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
 
-                                </CardHeader>
-                                <CardBody className="overflow-visible py-2">
-                                    <Image
-                                        src="https://cdn.emergencydispatch.org/iaed/img/protocols/disico_efd.svg"
-                                        className="p-2 border-2 mx-auto mb-4 border-[#082636] rounded-full"
-                                        width={150}
-                                        height={150}
-                                        alt="Fire" />
-                                </CardBody>
-                                <h4 className="font-bold text-large text-center">FIRE</h4>
+                                    </CardHeader>
+                                    <CardBody className="overflow-visible py-2">
+                                        <Image
+                                            src="https://cdn.emergencydispatch.org/iaed/img/protocols/disico_efd.svg"
+                                            className="p-2 border-2 mx-auto mb-4 border-[#082636] rounded-full"
+                                            width={150}
+                                            height={150}
+                                            alt="Fire" />
+                                    </CardBody>
+                                    <h4 className="font-bold text-large text-center">FIRE</h4>
 
-                            </Card>
-                        </div>
+                                </Card>
+                            </div>
 
-                        <div onClick={handleFrom}>
+                            <div onClick={handleFrom}>
 
-                            <Card className="py-4 cursor-pointer shadow-none hover:bg-[#e8ebdd] bg-[#e7e8e2] rounded-none border-none]">
-                                <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
+                                <Card className="py-4 cursor-pointer shadow-none hover:bg-[#e8ebdd] bg-[#e7e8e2] rounded-none border-none]">
+                                    <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
 
-                                </CardHeader>
-                                <CardBody className="overflow-visible py-2">
-                                    <Image
-                                        src="https://cdn.emergencydispatch.org/iaed/img/protocols/disico_epd.svg"
-                                        width={150}
-                                        height={150}
-                                        alt="Police" className="p-2 border-2 mx-auto mb-4 border-[#082636] rounded-full" />
-                                </CardBody>
-                                <h4 className="font-bold text-large text-center">POLICE</h4>
+                                    </CardHeader>
+                                    <CardBody className="overflow-visible py-2">
+                                        <Image
+                                            src="https://cdn.emergencydispatch.org/iaed/img/protocols/disico_epd.svg"
+                                            width={150}
+                                            height={150}
+                                            alt="Police" className="p-2 border-2 mx-auto mb-4 border-[#082636] rounded-full" />
+                                    </CardBody>
+                                    <h4 className="font-bold text-large text-center">POLICE</h4>
 
-                            </Card>
-                        </div>
-                    </section> : <FormComponent onClick={handleHideFrom} />}
+                                </Card>
+                            </div>
+                        </section> : <FormComponent onClick={handleHideFrom} />}
+                    </div>
                 </main>
-
-
             </div >
-
-
-        </>
     );
 };
 
