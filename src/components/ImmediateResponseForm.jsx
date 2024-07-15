@@ -23,7 +23,7 @@ const ImmediateResponseForm = ({ onSubmit }) => {
 
     return (
         <form className="max-w-[80%] mx-auto p-4 bg-white" onSubmit={handleSubmit}>
-            <p className="text-2xl font-bold mb-4">1B BILLING INFORMATION</p>
+            <p className="text-[23px] font-bold ">1B BILLING INFORMATION</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
                 <Input
@@ -62,7 +62,7 @@ const ImmediateResponseForm = ({ onSubmit }) => {
 
                 <Select
                     size='sm'
-                    label="Specifies the nature of the emergency"
+                    label="Emergency Type*"
                     classNames={{ mainWrapper: '!bg-white border-2 border-gray-300', trigger: '!bg-white' }}
                     value={emergencyType}
                     onChange={(e) => setEmergencyType(e.target.value)}

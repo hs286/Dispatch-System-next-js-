@@ -31,7 +31,10 @@ const AdditionalInformationForm = ({ onSubmit, onClose }) => {
 
     return (
         <form className="max-w-[90%] mx-auto p-4 bg-white" onSubmit={handleSubmit}>
-            <p className="text-2xl font-bold mb-4">Additional Information<small>(Caller Information)</small></p>
+            <div className='flex flex-col sm:flex-row items-baseline mb-2'>
+            <p className="text-[23px] font-bold ">Additional Information</p>
+            <p className="text-1xl font-bold">(Caller Information)</p>
+            </div>
         <div className='grid gap-4'>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
@@ -130,11 +133,11 @@ const AdditionalInformationForm = ({ onSubmit, onClose }) => {
                 />
             </div>
             </div>
-            <div className="mt-4 text-end">
-                <Button color="danger" variant="light" onPress={onClose}>
+            <div className="mt-4  flex max-sm:flex-col sm:flex-row gap-2 justify-end">
+                <Button color="danger" variant="flat" onPress={onClose} size='sm'>
                     Close
                 </Button>
-                <Button type="submit" color="primary">
+                <Button type="submit" color="primary" size='sm' fullWidth={false}>
                     Submit Additional Information
                 </Button>
             </div>

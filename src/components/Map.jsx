@@ -1,9 +1,10 @@
 'use client'
+import { Spinner } from '@nextui-org/react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api'
 import React, { useCallback, useState } from 'react'
 const containerStyle = {
     width: '100%',
-    height: "30vh"
+    height: "33vh"
 }
 // const center = {
 //     lat: 31.5217980444476,
@@ -33,11 +34,11 @@ const Map = ({ center }) => {
 
 
         >
-
-            <></>
         </GoogleMap>
     ) : (
-        <div>Loading...</div>
+        <div className='flex items-center justify-center h-[30vh]'> 
+        <Spinner color="default" label='Map Loading' />
+        </div>
     );
 };
 

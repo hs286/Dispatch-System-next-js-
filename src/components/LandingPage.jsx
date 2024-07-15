@@ -32,10 +32,9 @@ const LandingPage = () => {
         lng: 74.36152118336334,
     };
     return (
-            <div className="bg-[#e7e8e2]">
-                <main className=" mx-auto flex flex-col " style={{ height: 'calc(100vh - 64px)' }}>
+                <main className=" mx-auto sm:h-[90.8vh] ">
                     <Map center={center} />
-                    <div className='pt-3'>
+                    <div className='py-4'>
                         {!showForm ? <section className="px-3 grid grid-cols-1 md:grid-cols-3 gap-4">
 
 
@@ -98,7 +97,6 @@ const LandingPage = () => {
                         </section> : <FormComponent onClick={handleHideFrom} />}
                     </div>
                 </main>
-            </div >
     );
 };
 
