@@ -1,9 +1,12 @@
 'use client'
 import React, { useState } from "react";
-import { Table, TableHeader, TableColumn, Input, TableBody, TableRow, TableCell, } from "@nextui-org/react"; import { IoShareSocialOutline } from "react-icons/io5";
+import { table, thead, th, Input, tbody, tr, td, Button } from "@nextui-org/react";
+import { IoShareSocialOutline } from "react-icons/io5";
 import { FaSearch, FaFilter, FaTable } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import AccordionComponent from "./AccordionComponent";
+import { MdKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md";
+
 const rows = [
     {
         id: 1, caller: 'Anas Abrar', phoneNumber: '(406) 555-0120', dateTime: 'November 28, 2023',
@@ -22,8 +25,8 @@ const rows = [
         outcome: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         notes: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    }]
-
+    }
+];
 
 const columns = [
     {
@@ -46,30 +49,21 @@ const columns = [
         key: "duration",
         label: "Duration",
     },
-
     {
         key: "status",
         label: "Status",
     },
-
     {
         key: "action",
         label: "Action",
     },
 ];
 
-
-
-
 export default function CallLog() {
-    // const [expandedRows, setExpandedRows] = useState([]);
-
-    // const toggleRow = (id) => {
-    //     setExpandedRows((prev) => prev.includes(id) ? prev.filter(rowId => rowId !== id) : [...prev, id]);
-    // };
+    const [arcIndex, setArcIndex] = useState()
     return (
-        <div className=" m-4">
-            <div className="flex justify-between">
+        <div className="m-4 h-screen">
+            <div className="flex justify-between mb-5">
                 <h1 className="text-2xl font-bold">Call History</h1>
                 <div className="flex items-center space-x-2">
                     <Input
@@ -78,7 +72,7 @@ export default function CallLog() {
                         className=""
                         placeholder="Search"
                         startContent={
-                            <CiSearch className="text-[#2D8076] mb-0.5  pointer-events-none flex-shrink-0" />
+                            <CiSearch className="text-[#2D8076] mb-0.5 pointer-events-none flex-shrink-0" />
                         }
                     />
                     <button className="p-2 bg-gray-100 rounded-md">
@@ -89,35 +83,52 @@ export default function CallLog() {
                     </button>
                 </div>
             </div>
-            <Table isStriped aria-label="Example static collection table">
-                <TableHeader  >
-                    {columns.map((items) => (<TableColumn className="bg-[#E9F1EA]" key={items.key}>{items.label}</TableColumn>))}
-
-
-                </TableHeader>
-                <TableBody>
-                    {rows.map((row) => (<TableRow key="1" className="even:bg-[#F4FBF8]">
-                        <TableCell>{row.caller}</TableCell>
-                        <TableCell>{row.phoneNumber}</TableCell>
-                        <TableCell>{row.dateTime}</TableCell>
-                        <TableCell>{row.emergencyType}</TableCell>
-                        <TableCell>{row.duration}</TableCell>
-                        <TableCell >
-                            <span className={`text-xs pt-[2px] pb-[2px] pl-[8px] pr-[8px] rounded-full ${row.status === 'completed' ? 'text-[#2D8076] bg-[#2D807626]' : row.status === 'in Progress' ? 'text-[#FFA51F] bg-[#FFA6212E]' : ''}`}>
-                                {row.status}
-                            </span>
-                        </TableCell>
-                        <TableCell className="inline-flex pt-[2px] pb-[2px] pl-[8px] pr-[8px] border items-center border-[#2D8076] rounded-full bg-[#2D8076] text-white text-xs"><IoShareSocialOutline /><span>Share</span></TableCell>
-                    </TableRow>))}
-                </TableBody>
-                {/* <TableBody>
-                    {rows.map((row) => (
-                        <Accordion key={row.id} rows={row} isExpanded={expandedRows.includes(row.id)} toggleRow={toggleRow} />
+            <div className=" bg-white rounded-xl p-5">
+            <table aria-label=" table " className="min-w-full">
+                <thead>
+                    <tr>
+                    {columns.map((items, index) => (
+                        <th className="bg-[#E9F1EA] py-5 text-[#202431] text-md font-medium text-start ps-5 " style={index==0 ? {borderTopLeftRadius:"10px"} : index == columns.length - 1 ? {borderTopRightRadius: "10px"} :{}} key={items.key}>{items.label}</th>
                     ))}
-                </TableBody> */}
-            </Table>
+                    </tr>
+                </thead>
+                <tbody>
+                    {rows.map((row,index) => (
+                        <React.Fragment key={row.id}>
+                            <tr className="even:bg-[#F4FBF8] text-start " onClick={()=>{setArcIndex((prevIndex)=> prevIndex === index ? NaN : index)}}>
+                                <td className="ps-5 py-5 flex items-center"> <span className="pr-3">{index != arcIndex ? <MdKeyboardArrowRight /> : <MdKeyboardArrowDown />}</span>{row.caller}</td>
+                                <td>{row.phoneNumber}</td>
+                                <td>{row.dateTime}</td>
+                                <td>{row.emergencyType}</td>
+                                <td>{row.duration}</td>
+                                <td>
+                                    <span className={`text-xs py-[6px] pl-[8px] pr-[8px] rounded-full ${row.status === 'completed' ? 'text-[#2D8076] bg-[#2D807626]' : row.status === 'in Progress' ? 'text-[#FFA51F] bg-[#FFA6212E]' : ''}`}>
+                                        {row.status}
+                                    </span>
+                                </td>
+                                <td className="text-center"><span className="w-max flex text-xs py-[6px] pl-[8px] pr-[8px] rounded-full   bg-[#2D8076] text-white items-center"><IoShareSocialOutline />Share</span></td>
+                            </tr>
+                           {index === arcIndex ?  <tr >
+                                <td colSpan={columns.length}>
+                                    <AccordionComponent row={row} />
+                                </td>
+                            </tr> : <></>}
+                        </React.Fragment>
+                    ))}
+                </tbody>
+            </table>
+            <div className="flex items-center justify-between pt-5 border-t border-gray-300">
+                    <Button variant="bordered" color="text-gray-300" className="">
+                        Prevous
+                    </Button>
+                    <p className="#727789">
+                        Page 1 of 12
+                    </p>
+                    <Button variant="bordered" color="text-gray-300" className="">
+                        Next
+                    </Button>
+            </div>
+            </div>
         </div>
-
     );
 }
-

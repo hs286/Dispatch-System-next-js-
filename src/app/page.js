@@ -7,9 +7,8 @@ export default function Home() {
   return (
     <>
       {/* <HomePage /> */}
-      {/* <LoginSignup /> */}
-      <CallLog />
-      <AccordionComponent />
+      <LoginSignup />
+      
       {/* <LandingPage /> */}
     </>
   );

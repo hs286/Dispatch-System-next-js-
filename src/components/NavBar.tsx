@@ -33,6 +33,11 @@ export default function NavBar() {
             Customers
           </Link>
         </NavbarItem>
+        <NavbarItem isActive>
+          <Link href="/call-history" aria-current="page">
+            History
+          </Link>
+        </NavbarItem>
         <NavbarItem>
           <Link color="white" href="#">
             Integrations
