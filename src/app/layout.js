@@ -5,7 +5,7 @@ import 'boxicons/css/boxicons.min.css';
 
 // const lato = Lato({ 
 //   subsets: ["latin"], 
-//   weights: ["100", "300", "400", "700", "900"]
+//   weights: ["100", "300", "400", "700", "900"],
 // });
 
 export const metadata = {
