@@ -10,7 +10,7 @@ import {
 
 export default function NavBar() {
   return (
-    <Navbar className="bg-[#2a3644] text-[#e7e8e2]">
+    <Navbar className="bg-[#2D8076] text-[white]">
       <NavbarBrand className="">
         <p className="font-bold bg-[#e7e8e2] px-4 py-1 rounded-lg text-inherit">
           <Link className="text-[#2a3644]" href={"/"}>
