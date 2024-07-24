@@ -6,45 +6,86 @@ import {
   NavbarContent,
   NavbarItem,
   Button,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+  Autocomplete,
+  AutocompleteItem,
 } from "@nextui-org/react";
+import Image from "next/image";
+import { CiBellOn } from "react-icons/ci";
 
+export const animals = [
+  {label: "Settings", value: "Settings", description: "The most popular pet in the world"},
+  {label: "Logout", value: "Logout", description: "The largest land animal"},
+]
 export default function NavBar() {
   return (
-    <Navbar className="bg-[#2D8076] text-[white]">
+    <Navbar className="bg-[#f4f4f5] text-[#2D2D2D] text-[14px]">
       <NavbarBrand className="">
-        <p className="font-bold bg-[#e7e8e2] px-4 py-1 rounded-lg text-inherit">
-          <Link className="text-[#2a3644]" href={"/"}>
-            {" "}
-            Logo{" "}
+        <p className="font-bold  px-4 py-1 rounded-lg text-inherit">
+          <Link className="text-[#2D8076] bg-transparent" href={"/"}>
+            Logo
           </Link>
         </p>
       </NavbarBrand>
       <NavbarContent
-        className="text=[#e7e8e2] hidden sm:flex gap-4"
-        justify="center"
+        className="text=[#2D2D2D] hidden sm:flex gap-4"
+        justify="end"
       >
-        <NavbarItem className="text=[#e7e8e2]">
-          <Link color="foreground" href="#" className="">
-            Features
+        <NavbarItem >
+          <Link color="foreground" href="/profile" className="">
+            Home
           </Link>
         </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="/call-history" aria-current="page">
-            History
+        <NavbarItem >
+          <Link href="/dashboard" aria-current="page">
+            Dashboard
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Link color="white" href="#">
-            Integrations
+            Calls
           </Link>
         </NavbarItem>
+        <NavbarItem>
+          <Link color="white" href="#">
+            Map
+          </Link>
+        </NavbarItem>
+        <NavbarItem >
+          <Link href="/call-history" aria-current="page">
+            History
+          </Link>
+        </NavbarItem>
+
+        {/* <NavbarItem > */}
+        
+        <span className="p-2 bg-[#d3d3d3] rounded-[50%]"><CiBellOn  size={20} color="black"/></span>
+
+          <Image
+            width={30}
+            height={30}
+            src="/police.png"
+            alt="NextUI hero Image"
+            className='rounded-[50%]'
+          />
+        {/* </NavbarItem> */}
+        <NavbarItem >
+
+        <Autocomplete
+        variant="flat"
+        placeholder="John Doe"
+        className=" border-none bg-none w-40"
+        defaultItems={animals}
+      >
+        {(item) => <AutocompleteItem classNames={{wrapper: 'bg-none border-0'}} key={item.value}>{item.label}</AutocompleteItem>}
+      </Autocomplete>
+        </NavbarItem>
+
       </NavbarContent>
-      <NavbarContent justify="end">
+      {/* <NavbarContent justify="end">
         <NavbarItem className="">
           <Link href="/login">Login</Link>
         </NavbarItem>
@@ -53,14 +94,14 @@ export default function NavBar() {
             <Button
               type="button"
               elementType={"button"}
-              className="text=[#e7e8e2]"
+              className="text=[#2D2D2D]"
               variant="flat"
             >
               Sign Up
             </Button>
           </Link>
         </NavbarItem>
-      </NavbarContent>
+      </NavbarContent> */}
     </Navbar>
   );
 }
