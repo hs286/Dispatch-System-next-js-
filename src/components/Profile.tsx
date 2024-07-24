@@ -35,44 +35,44 @@ const FormComponent = () => {
                     </div>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-10 w-[80%]'>
                         <div>
-                    <label className='text-gray-600'>Full Name</label>
+                    <label className='text-[#6C6C6C] text-sm '>Full Name</label>
                         <Input
                             key={'name'}
                             type="text"
                             // label="Full Name"
                             // labelPlacement={'outside'}
                             description={''}
-                            classNames={{ inputWrapper: 'bg-[#F6F7F9]' }}
+                            classNames={{ inputWrapper: 'bg-[#F6F7F9] mt-2' }}
                             size='lg'
                         />
                         </div><div>
-                        <label className='text-gray-600'>Email Address</label>
+                        <label className='text-[#6C6C6C] text-sm '>Email Address</label>
                         <Input
                             key={'Email Address'}
                             type="email"
                             // label="Email Address"
                             // labelPlacement={'outside'}
                             description={''}
-                            classNames={{ inputWrapper: 'bg-[#F6F7F9]' }}
+                            classNames={{ inputWrapper: 'bg-[#F6F7F9] mt-2' }}
                             size='lg'
                         />
                         </div><div >
-                        <label className='text-gray-600'>Organization</label>
+                        <label className='text-[#6C6C6C] text-sm '>Organization</label>
                         <Autocomplete
                             variant="flat"
                             placeholder="Police"
-                            className=" border-none bg-none"
+                            className=" border-none bg-none mt-2"
                             defaultItems={organization}
                             size='lg'
                         >
                             {(item) => <AutocompleteItem classNames={{ wrapper: 'bg-none border-0' }} key={item.value}>{item.label}</AutocompleteItem>}
                         </Autocomplete>
                         </div><div>
-                        <label className='text-gray-600'>Role</label>
+                        <label className='text-[#6C6C6C] text-sm '>Role</label>
                         <Autocomplete
                             variant="flat"
                             placeholder="Dispatcher"
-                            className=" border-none bg-none"
+                            className=" border-none bg-none mt-2"
                             defaultItems={role}
                             size='lg'
                         >
