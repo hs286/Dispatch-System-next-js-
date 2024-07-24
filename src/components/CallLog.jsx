@@ -6,7 +6,7 @@ import { FaSearch, FaFilter, FaTable } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import AccordionComponent from "./AccordionComponent";
 import { MdKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md";
-
+import './index.css'
 const rows = [
     {
         id: 1, caller: 'Anas Abrar', phoneNumber: '(406) 555-0120', dateTime: 'November 28, 2023',
@@ -87,8 +87,9 @@ export default function CallLog() {
             <table aria-label=" table " className="min-w-full">
                 <thead>
                     <tr>
+
                     {columns.map((items, index) => (
-                        <th className="bg-[#E9F1EA] py-5 text-[#202431] text-md font-medium text-start ps-5 " style={index==0 ? {borderTopLeftRadius:"10px"} : index == columns.length - 1 ? {borderTopRightRadius: "10px"} :{}} key={items.key}>{items.label}</th>
+                        <th className="bg-[#E9F1EA] py-5 text-[#202431] text-md font-medium text-start " style={index==0 ? {borderTopLeftRadius:"10px"} : index == columns.length - 1 ? {borderTopRightRadius: "10px"} :{}} key={items.key}>{items.label}</th>
                     ))}
                     </tr>
                 </thead>

@@ -1,8 +1,17 @@
 "use client";
 import React, { useState } from 'react';
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Input, Textarea } from "@nextui-org/react";
+import { Autocomplete, AutocompleteItem, Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Input, Textarea } from "@nextui-org/react";
 import Image from 'next/image';
 import { FaCameraRetro } from 'react-icons/fa';
+
+export const role = [
+    { label: "Dispatcher", value: "Dispatcher", description: "The most popular pet in the world" },
+    { label: "Caller", value: "Caller", description: "The largest land animal" },
+]
+export const organization = [
+    { label: "Police", value: "Police", description: "The most popular pet in the world" },
+    { label: "Ambulance", value: "Ambulance", description: "The largest land animal" },
+]
 
 const FormComponent = () => {
 
@@ -25,57 +34,53 @@ const FormComponent = () => {
                         <b>Change profile picture</b>
                     </div>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-10 w-[80%]'>
+                        <div>
+                    <label className='text-gray-600'>Full Name</label>
                         <Input
                             key={'name'}
                             type="text"
-                            label="Full Name"
-                            labelPlacement={'outside'}
+                            // label="Full Name"
+                            // labelPlacement={'outside'}
                             description={''}
-                            classNames={{inputWrapper: 'bg-[#F6F7F9]'}}
-                            size='md'
+                            classNames={{ inputWrapper: 'bg-[#F6F7F9]' }}
+                            size='lg'
                         />
+                        </div><div>
+                        <label className='text-gray-600'>Email Address</label>
                         <Input
                             key={'Email Address'}
                             type="email"
-                            label="Email Address"
-                            labelPlacement={'outside'}
+                            // label="Email Address"
+                            // labelPlacement={'outside'}
                             description={''}
-                            classNames={{inputWrapper: 'bg-[#F6F7F9]'}}
-                            size='md'
+                            classNames={{ inputWrapper: 'bg-[#F6F7F9]' }}
+                            size='lg'
                         />
-                        <Dropdown backdrop="blur" size='lg'>
-                            <DropdownTrigger>
-                                <Button
-                                    className='bg-[#F6F7F9] border-none place-content-start justify-start text-[#6C6C6C]'
-                                    variant="bordered"
-                                >
-                                    Organization
-                                </Button>
-                            </DropdownTrigger>
-                            <DropdownMenu variant="faded" aria-label="Static Actions">
-                                <DropdownItem key="new">Police</DropdownItem>
-                                <DropdownItem key="copy">Ambulane</DropdownItem>
-                                <DropdownItem key="edit">Fire Fighter</DropdownItem>
-                            </DropdownMenu>
-                        </Dropdown>
-                        <Dropdown backdrop="blur" size='lg'>
-                            <DropdownTrigger>
-                                <Button
-                                    variant="bordered"
-                                    className='bg-[#F6F7F9] border-none place-content-start justify-start text-[#6C6C6C]'
-
-                                >
-                                    Role
-                                </Button>
-                            </DropdownTrigger>
-                            <DropdownMenu variant="faded" aria-label="Static Actions">
-                                <DropdownItem key="new">Dispatcher</DropdownItem>
-                                <DropdownItem key="copy">Caller</DropdownItem>
-                                <DropdownItem key="edit">Customer</DropdownItem>
-                            </DropdownMenu>
-                        </Dropdown>
+                        </div><div >
+                        <label className='text-gray-600'>Organization</label>
+                        <Autocomplete
+                            variant="flat"
+                            placeholder="Police"
+                            className=" border-none bg-none"
+                            defaultItems={organization}
+                            size='lg'
+                        >
+                            {(item) => <AutocompleteItem classNames={{ wrapper: 'bg-none border-0' }} key={item.value}>{item.label}</AutocompleteItem>}
+                        </Autocomplete>
+                        </div><div>
+                        <label className='text-gray-600'>Role</label>
+                        <Autocomplete
+                            variant="flat"
+                            placeholder="Dispatcher"
+                            className=" border-none bg-none"
+                            defaultItems={role}
+                            size='lg'
+                        >
+                            {(item) => <AutocompleteItem  classNames={{ wrapper: 'bg-none border-0' }} key={item.value}>{item.label}</AutocompleteItem>}
+                        </Autocomplete>
+                        </div>
                     </div>
-                    <Button type="submit" size='md' className='bg-[#2D8076] hover:bg-[#1d8074] text-white'  fullWidth={false}>
+                    <Button type="submit" size='md' className='bg-[#2D8076] hover:bg-[#1d8074] text-white' fullWidth={false}>
                         Save Changes
                     </Button>
                 </div>
