@@ -11,7 +11,7 @@ import { CiLocationOn } from "react-icons/ci";
 export default function AccordionComponent({ row }) {
     return (
                 <Card className="bg-transparent shadow-none">
-                    <div className="grid grid-cols-5 gap-4 m-4 items-center border-[#2D8076] border-l-2 ps-3">
+                    <div className="grid grid-cols-5 gap-4 my-4 mx-7 items-center border-[#2D8076] border-l-2 ps-5">
                         <div className="flex flex-col">
                             <span className="text-[#727789] text-[10px] font-medium">Caller’s Name</span>
                             <p className="text-sm font-normal">{row.caller}</p>

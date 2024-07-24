@@ -31,7 +31,7 @@ const rows = [
 const columns = [
     {
         key: "caller",
-        label: "Caller",
+        label: "Call Person",
     },
     {
         key: "phoneNumber",
